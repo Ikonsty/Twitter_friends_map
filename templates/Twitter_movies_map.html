@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.5.1/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.5.1/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://rawcdn.githack.com/python-visualization/folium/master/folium/templates/leaflet.awesome.rotate.css"/>
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_6aed37be41134016a761d3bab2a1cc79 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+</head>
+<body>    
+    
+            <div class="folium-map" id="map_6aed37be41134016a761d3bab2a1cc79" ></div>
+        
+</body>
+<script>    
+    
+            var map_6aed37be41134016a761d3bab2a1cc79 = L.map(
+                "map_6aed37be41134016a761d3bab2a1cc79",
+                {
+                    center: [44.0, 30.0],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 10,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_f5f82462416640f491d5537e7a2b28f6 = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_6aed37be41134016a761d3bab2a1cc79);
+        
+    
+            var feature_group_4933c6915b6743cd90c0528a3d252e80 = L.featureGroup(
+                {}
+            ).addTo(map_6aed37be41134016a761d3bab2a1cc79);
+        
+    
+            var marker_fcad9d0edf544e59b1dc5fae35dd3794 = L.marker(
+                [51.429769, -0.1311105],
+                {}
+            ).addTo(feature_group_4933c6915b6743cd90c0528a3d252e80);
+        
+    
+            var icon_50c3c11b820344b9a2880ac3e3cce3aa = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_fcad9d0edf544e59b1dc5fae35dd3794.setIcon(icon_50c3c11b820344b9a2880ac3e3cce3aa);
+        
+    
+        var popup_c46884c46e084a9e8684704d5674409b = L.popup({"maxWidth": "100%"});
+
+        
+            var html_001116f88db84150ba9757af486811b0 = $(`<div id="html_001116f88db84150ba9757af486811b0" style="width: 100.0%; height: 100.0%;">BellRibeiroAddy  Streatham, London</div>`)[0];
+            popup_c46884c46e084a9e8684704d5674409b.setContent(html_001116f88db84150ba9757af486811b0);
+        
+
+        marker_fcad9d0edf544e59b1dc5fae35dd3794.bindPopup(popup_c46884c46e084a9e8684704d5674409b)
+        ;
+
+        
+    
+    
+            var marker_26e9f876aa764f30a8fba0dd09621e59 = L.marker(
+                [54.7023545, -3.2765753],
+                {}
+            ).addTo(feature_group_4933c6915b6743cd90c0528a3d252e80);
+        
+    
+            var icon_19474a247f1f47059d00165fe106b548 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_26e9f876aa764f30a8fba0dd09621e59.setIcon(icon_19474a247f1f47059d00165fe106b548);
+        
+    
+        var popup_6e395875b24b42d78269f20bc9aa9702 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_1ef11a6b8b23446492f9808eda5ccd8c = $(`<div id="html_1ef11a6b8b23446492f9808eda5ccd8c" style="width: 100.0%; height: 100.0%;">WhoresofYore  United Kingdom</div>`)[0];
+            popup_6e395875b24b42d78269f20bc9aa9702.setContent(html_1ef11a6b8b23446492f9808eda5ccd8c);
+        
+
+        marker_26e9f876aa764f30a8fba0dd09621e59.bindPopup(popup_6e395875b24b42d78269f20bc9aa9702)
+        ;
+
+        
+    
+    
+            var marker_ced220a5c30740c3a4ac306e75c9f843 = L.marker(
+                [52.9534193, -1.1496461],
+                {}
+            ).addTo(feature_group_4933c6915b6743cd90c0528a3d252e80);
+        
+    
+            var icon_51148f0959e84173a88163cc05db8f1c = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_ced220a5c30740c3a4ac306e75c9f843.setIcon(icon_51148f0959e84173a88163cc05db8f1c);
+        
+    
+        var popup_81da43da2782467bba8743b99b2c01bf = L.popup({"maxWidth": "100%"});
+
+        
+            var html_e595642f29d14dd58f0bc0ad1411baf5 = $(`<div id="html_e595642f29d14dd58f0bc0ad1411baf5" style="width: 100.0%; height: 100.0%;">NadiaWhittomeMP  Nottingham</div>`)[0];
+            popup_81da43da2782467bba8743b99b2c01bf.setContent(html_e595642f29d14dd58f0bc0ad1411baf5);
+        
+
+        marker_ced220a5c30740c3a4ac306e75c9f843.bindPopup(popup_81da43da2782467bba8743b99b2c01bf)
+        ;
+
+        
+    
+    
+            var layer_control_ec5ccbde2241450e9d638b74af9aff7e = {
+                base_layers : {
+                    "openstreetmap" : tile_layer_f5f82462416640f491d5537e7a2b28f6,
+                },
+                overlays :  {
+                    "friends" : feature_group_4933c6915b6743cd90c0528a3d252e80,
+                },
+            };
+            L.control.layers(
+                layer_control_ec5ccbde2241450e9d638b74af9aff7e.base_layers,
+                layer_control_ec5ccbde2241450e9d638b74af9aff7e.overlays,
+                {"autoZIndex": true, "collapsed": true, "position": "topright"}
+            ).addTo(map_6aed37be41134016a761d3bab2a1cc79);
+        
+</script>

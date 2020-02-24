@@ -7,9 +7,13 @@ import ssl
 import folium
 from pprint import pprint
 from geopy.geocoders import Nominatim
+from flask import Flask, render_template, request, redirect, url_for
+
+
+app = Flask(__name__)
 
 TWITTER_URL = 'https://api.twitter.com/1.1/friends/list.json'
-def find_json(TWITTER_URL):
+def find_json(TWITTER_URL, acct):
     """
     srt -> dict
     Return json from url
@@ -19,7 +23,7 @@ def find_json(TWITTER_URL):
     ctx.check_hostname = False
     ctx.verify_mode = ssl.CERT_NONE
 
-    acct = input('Enter Twitter Account: ')
+    # acct = input('Enter Twitter Account: ')
     url = twurl.augment(TWITTER_URL,
                         {'screen_name': acct, 'count': '5'})
     # print('Retrieving', url)
@@ -27,15 +31,13 @@ def find_json(TWITTER_URL):
     data = connection.read().decode()
 
     js = json.loads(data)
-    return js, acct
+    return js
 # pprint(find_json(TWITTER_URL))
-
 
 def transform_data(json):
     """
     dict -> lst(tuple)
     Return list of tuples from json with name and location.
-
     """
     nick_pos = []
     for user in json['users']:
@@ -60,15 +62,15 @@ def find_position(friends):
         except:
             pass
     return friends_pos
-print(find_position(transform_data(find_json(TWITTER_URL)[0])))
+# print(find_position(transform_data(find_json(TWITTER_URL)[0])))
 
 
-def generate_map(friends_pos, user):
+def generate_map(friends_pos):
     """
     lst, str, str -> file
     Return html with map with the nearest places where films was shoted
     """
-    map = folium.Map(location=[44, 30], zoom_start=100)
+    map = folium.Map(location=[44, 30], zoom_start=10)
     fg_marker = folium.FeatureGroup(name='friends')
     for friend in friends_pos:
         lt = friend[1][0]
@@ -79,22 +81,36 @@ def generate_map(friends_pos, user):
 
     map.add_child(fg_marker)
     map.add_child(folium.LayerControl())
-    file = user + '_movies_map.html'
-    map.save(file)
-    print('Finished. Please have look at the map ' + file)
+    # file = 'Twitter_movies_map.html'
+    # map.save('templates/' + file)
+    # print('Finished. Please have look at the map ' + file)
+    return map._repr_html_()
 
 
-def main():
-    """
-    void -> file
-    Take json from twitter and return map of nearest friends
-    """
-    TWITTER_URL = 'https://api.twitter.com/1.1/friends/list.json'
-    js = find_json(TWITTER_URL)
-    json = js[0]
-    user = js[1]
-    friends = transform_data(json)
-    friends_pos = find_position(friends)
+@app.route("/")
+def index():
+    return render_template('index.html')
 
-    generate_map(friends_pos, user)
-# main()
+
+@app.route("/map", methods = ['POST', 'GET'])
+def map():
+    if request.method == "POST":
+        info = request.form
+        name = info.get('name','')
+        TWITTER_URL = 'https://api.twitter.com/1.1/friends/list.json'
+        try:
+            json = find_json(TWITTER_URL, name)
+        except:
+            return render_template('error.html', error_message='User not found...')
+        friends = transform_data(json)
+        friends_pos = find_position(friends)
+        # generate_map(friends_pos)
+    # return render_template("Twitter_movies_map.html")
+    else:
+        return render_template('error.html', error_message="You have to give a user name")
+
+    return generate_map(friends_pos)
+
+
+if __name__ == '__main__':
+    app.run(debug=True)
